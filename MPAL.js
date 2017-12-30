@@ -125,7 +125,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 		visualizer: function(mode, func) {
 			if (mode == 'on') {
 				JSP('#canvasBackground').style.display = 'block';
-				window.requestAnimationFrame(this.frequencyReceiver());
+				window.requestAnimationFrame(this.frequencyReceiver);
 			} else if (mode == 'off') {
 				JSP('#canvasBackground').style.display = 'none';
 				clearInterval(this.visualizerInterval);
