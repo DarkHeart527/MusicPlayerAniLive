@@ -125,7 +125,10 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 		visualizer: function(mode, func) {
 			if (mode == 'on') {
 				JSP('#canvasBackground').style.display = 'block';
-				window.requestAnimationFrame(this.frequencyReceiver);
+				this.visualizerInterval = setInterval( function() {
+					MPAL.frequencyReceiver();
+					func();
+				}, 50);
 			} else if (mode == 'off') {
 				JSP('#canvasBackground').style.display = 'none';
 				clearInterval(this.visualizerInterval);
@@ -171,3 +174,4 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 		}
 		init();
 */
+MPAL.visualizer('on');
