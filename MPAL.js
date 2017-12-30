@@ -27,7 +27,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 					var trackNameElement = JSPlugs.newElement('div');
 					trackNameElement.onclick = function() {
 						// Create a Play on click function
-						JSP('#audioPort2').volume = 0;
+						//JSP('#audioPort2').volume = 0;
 						JSP('#audioPort1').src = this.attributes.src;
 						JSP('#audioPort2').src = this.attributes.src;
 						MPAL.playing = true;
