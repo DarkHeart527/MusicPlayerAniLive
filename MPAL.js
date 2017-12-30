@@ -110,7 +110,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 			} else {
 				this.freqSave.fbc_array = new Uint8Array(this.freqSave.analyser.frequencyBinCount);
 				this.freqSave.analyser.getByteFrequencyData(this.freqSave.fbc_array);
-				//this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
+				this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
 				this.freqSave.ctx.fillStyle = '#00CCFF';
 				bars = 100;
 				for (let i = 0; i < bars; i++) {
@@ -125,10 +125,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 		visualizer: function(mode, func) {
 			if (mode == 'on') {
 				JSP('#canvasBackground').style.display = 'block';
-				this.visualizerInterval = setInterval( function() {
-					MPAL.frequencyReceiver();
-					func();
-				}, 50);
+				window.requestAnimationFrame(this.frequencyReceiver());
 			} else if (mode == 'off') {
 				JSP('#canvasBackground').style.display = 'none';
 				clearInterval(this.visualizerInterval);
