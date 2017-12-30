@@ -32,6 +32,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 						JSP('#audioPort2').src = this.attributes.src;
 						MPAL.playing = true;
 						JSP('#playpause').src = 'pause.png';
+						MPAL.visualizer('on');
 					}
 					trackNameElement.innerHTML = trackName;
 					trackNameElement.newClass('trackName');
