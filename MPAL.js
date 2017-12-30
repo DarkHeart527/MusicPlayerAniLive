@@ -174,4 +174,3 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 		}
 		init();
 */
-MPAL.visualizer('on');
