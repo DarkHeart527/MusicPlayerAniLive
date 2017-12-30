@@ -128,7 +128,9 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				JSP('#canvasBackground').style.display = 'block';
 				this.visualizerInterval = setInterval( function() {
 					MPAL.frequencyReceiver();
-					func();
+					if (func != '' | func != undefined) {
+						func();
+					}
 				}, 50);
 			} else if (mode == 'off') {
 				JSP('#canvasBackground').style.display = 'none';
