@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<link name="mpal" action="allow"></link>
+		<title>
+			Music Player AniLive
+		</title>
+		<!-- Styling That May Be Configured With Interactions INSIDE The Document -->
+		<style id="configurableStyle">
+		</style>
+		<link href="style/main.css" type="text/css" rel="stylesheet">
+		</link>
+		<script src="JSPlugs.js">
+		</script>
+		<script src="MPAL.js">
+		</script>
+		<script src="tracks.js">
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="animateTextBox">
+			</div>
+			<span>Music Player AniLive</span>
+		</div>
+		<div class="player">
+			<div class="controls">
+				<div id="playpause">
+					<img src="play.png" class="playpausePicture" />
+				</div>
+				<div id="back">
+					<img src="back.png" class="backPicture" />
+				</div>
+				<div id="foward">
+					<img src="foward.png" class="fowardPicture" />
+				</div>
+				<div class="progressBar">
+					<div id="progressText">
+						<span>0:00 / 0:00</span>
+					</div>
+					<div id="progress">
+					</div>
+				</div>
+			</div>
+			<div class="artistControls">
+				<div id="previousArtist">
+					(--
+				</div>
+				<div id="artistNameDisplay">
+				</div>
+				<div id="nextArtist">
+					--)
+				</div>
+			</div>
+			<div id="musicList">
+				<!-- Setup
+					<div artist="Some Artist">
+						<div class="track" name="A Track Name" src="trackUrl.mp3">
+							this.name
+						</div>
+					</div>
+				-->
+			</div>
+		</div>
+		<div class="side">
+		</div>
+		<audio id="audioPort1" autoplay>
+		</audio>
+		<audio id="audioPort2" autoplay>
+		</audio>
+		<audio id="audioPort3" autoplay>
+		</audio>
+	</body>
+	<script>
+		MPAL.setExeArea(JSP('#musicList'));
+		MPAL.setup();
+	</script>
+</html>
