@@ -129,7 +129,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				this.visualizerInterval = setInterval( function() {
 					MPAL.frequencyReceiver();
 					if (func != '' | func != undefined) {
-						func();
+						//func();
 					}
 				}, 50);
 			} else if (mode == 'off') {
