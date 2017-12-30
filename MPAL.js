@@ -110,7 +110,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 			} else {
 				this.freqSave.fbc_array = new Uint8Array(this.freqSave.analyser.frequencyBinCount);
 				this.freqSave.analyser.getByteFrequencyData(this.freqSave.fbc_array);
-				this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
+				//this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
 				this.freqSave.ctx.fillStyle = '#00CCFF';
 				bars = 100;
 				for (let i = 0; i < bars; i++) {
