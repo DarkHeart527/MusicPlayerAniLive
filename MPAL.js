@@ -11,6 +11,24 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 		currentSong: 1,
 		currentSongName: '',
 		currentArtistName: '',
+		updateDisplay: function(change) {
+			var artist = MPAL.artists[MPAL.currentArtist - 1];
+			var artistSimplify = '';
+			if (change == 'artist') {
+				for (let i = 0; i < artist.length; i++) {
+					if (artist[i] == ' ') {
+						
+					} else {
+						artistSimplify += artist[i];
+					}
+				}
+				for (let i2 = 0; i2 < JSP('.artist').length; i2++) {
+					JSP('.artist')[i2].style.display = 'none';
+				}
+				JSP('#' + artistSimplify).style.display = 'block';
+				JSP('#artistNameDisplay').innerHTML = artist;
+			}
+		},
 		setup: function() {
 			var musicList = this.targetSetup;
 			for (let i = 0; i < tracks.artists.length(); i++) {
@@ -20,6 +38,15 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				artistElement.attributes.artistName = artistName;
 				MPAL.artists[MPAL.artists.length] = artistName;
 				artistElement.newClass('artist');
+				var artistSimplify = '';
+				for (let i3 = 0; i3 < artistName.length; i3++) {
+					if (artistName[i3] == ' ') {
+						
+					} else {
+						artistSimplify += artistName[i3];
+					}
+				}
+				artistElement.id = artistSimplify;
 				musicList.appendChild(artistElement);
 				for (let i2 = 0; i2 < artist.length(); i2++) {
 					var track = artist[Object.keys(artist)[i2]];
@@ -34,6 +61,22 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 						MPAL.playing = true;
 						JSP('#playpause').src = 'pause.png';
 						MPAL.visualizer('on');
+					}
+					JSP('#nextArtist').onclick = function() {
+						if (MPAL.currentArtist == MPAL.artists.length) {
+							MPAL.currentArtist = 1;
+						} else {
+							MPAL.currentArtist++;
+						}
+						MPAL.updateDisplay('artist');
+					}
+					JSP('#previousArtist').onclick = function() {
+						if (MPAL.currentArtist == 1) {
+							MPAL.currentArtist = MPAL.artists.length;
+						} else {
+							MPAL.currentArtist--;
+						}
+						MPAL.updateDisplay('artist');
 					}
 					trackNameElement.innerHTML = trackName;
 					trackNameElement.newClass('trackName');

@@ -48,9 +48,23 @@ var tracks = {
 				source: 'Yet Simple.mp3',
 			},
 		},
-		'Linkin Park': {
-			'Cure For The Itch': {
-				source: 'Cure For The Itch.mp3',
+		'Kodak Black': {
+			'Hollyhood': {
+				source: 'Hollyhood.mp3',
+			},
+			'No Flockin': {
+				source: 'No Flockin.mp3',
+			},
+			'Skrilla (Instrumental)': {
+				source: 'Skrilla (Instrumental).mp3',
+			},
+		},
+		'Lil Wayne': {
+			'Lollipop': {
+				source: 'Lollipop.mp3',
+			},
+			'Six Foot Seven Foot': {
+				source: 'Six Foot Seven Foot.mp3',
 			},
 		},
 	},
