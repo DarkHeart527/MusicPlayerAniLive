@@ -97,7 +97,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 			}
 		},
 		customSettings: {
-			mainColor: '#448888',
+			mainColor: 'orange',
 		},
 		frequencyArray: [],
 		freqSave: {},
