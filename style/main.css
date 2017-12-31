@@ -23,9 +23,114 @@ body {
 	font-size: 100px;
 	z-index: 2;
 	background-color: transparent;
-	text-shadow: 0px 0px 25px orange;
+	/*text-shadow: 0px 0px 25px orange;*/
 	/*-webkit-background-clip: text;*/
 	margin-left: 20px;
+	animation: 1s infinite header;
+}
+
+@keyframes header {
+	0% {text-shadow: 0px 0px 0px orange}
+	1% {text-shadow: 0px 0px 1px orange}
+	2% {text-shadow: 0px 0px 2px orange}
+	3% {text-shadow: 0px 0px 3px orange}
+	4% {text-shadow: 0px 0px 4px orange}
+	5% {text-shadow: 0px 0px 5px orange}
+	6% {text-shadow: 0px 0px 6px orange}
+	7% {text-shadow: 0px 0px 7px orange}
+	8% {text-shadow: 0px 0px 8px orange}
+	9% {text-shadow: 0px 0px 9px orange}
+	10% {text-shadow: 0px 0px 10px orange}
+	11% {text-shadow: 0px 0px 11px orange}
+	12% {text-shadow: 0px 0px 12px orange}
+	13% {text-shadow: 0px 0px 13px orange}
+	14% {text-shadow: 0px 0px 14px orange}
+	15% {text-shadow: 0px 0px 15px orange}
+	16% {text-shadow: 0px 0px 16px orange}
+	17% {text-shadow: 0px 0px 17px orange}
+	18% {text-shadow: 0px 0px 18px orange}
+	19% {text-shadow: 0px 0px 19px orange}
+	20% {text-shadow: 0px 0px 20px orange}
+	21% {text-shadow: 0px 0px 21px orange}
+	22% {text-shadow: 0px 0px 22px orange}
+	23% {text-shadow: 0px 0px 23px orange}
+	24% {text-shadow: 0px 0px 24px orange}
+	25% {text-shadow: 0px 0px 25px orange}
+	26% {text-shadow: 0px 0px 26px orange}
+	27% {text-shadow: 0px 0px 27px orange}
+	28% {text-shadow: 0px 0px 28px orange}
+	29% {text-shadow: 0px 0px 29px orange}
+	30% {text-shadow: 0px 0px 30px orange}
+	31% {text-shadow: 0px 0px 31px orange}
+	32% {text-shadow: 0px 0px 32px orange}
+	33% {text-shadow: 0px 0px 33px orange}
+	34% {text-shadow: 0px 0px 34px orange}
+	35% {text-shadow: 0px 0px 35px orange}
+	36% {text-shadow: 0px 0px 36px orange}
+	37% {text-shadow: 0px 0px 37px orange}
+	38% {text-shadow: 0px 0px 38px orange}
+	39% {text-shadow: 0px 0px 39px orange}
+	40% {text-shadow: 0px 0px 40px orange}
+	41% {text-shadow: 0px 0px 41px orange}
+	42% {text-shadow: 0px 0px 42px orange}
+	43% {text-shadow: 0px 0px 43px orange}
+	44% {text-shadow: 0px 0px 44px orange}
+	45% {text-shadow: 0px 0px 45px orange}
+	46% {text-shadow: 0px 0px 46px orange}
+	47% {text-shadow: 0px 0px 47px orange}
+	48% {text-shadow: 0px 0px 48px orange}
+	49% {text-shadow: 0px 0px 49px orange}
+	50% {text-shadow: 0px 0px 50px orange}
+	51% {text-shadow: 0px 0px 49px orange}
+	52% {text-shadow: 0px 0px 48px orange}
+	53% {text-shadow: 0px 0px 47px orange}
+	54% {text-shadow: 0px 0px 46px orange}
+	55% {text-shadow: 0px 0px 45px orange}
+	56% {text-shadow: 0px 0px 44px orange}
+	57% {text-shadow: 0px 0px 43px orange}
+	58% {text-shadow: 0px 0px 42px orange}
+	59% {text-shadow: 0px 0px 41px orange}
+	60% {text-shadow: 0px 0px 40px orange}
+	61% {text-shadow: 0px 0px 39px orange}
+	62% {text-shadow: 0px 0px 38px orange}
+	63% {text-shadow: 0px 0px 37px orange}
+	64% {text-shadow: 0px 0px 36px orange}
+	65% {text-shadow: 0px 0px 35px orange}
+	66% {text-shadow: 0px 0px 34px orange}
+	67% {text-shadow: 0px 0px 33px orange}
+	68% {text-shadow: 0px 0px 32px orange}
+	69% {text-shadow: 0px 0px 31px orange}
+	70% {text-shadow: 0px 0px 30px orange}
+	71% {text-shadow: 0px 0px 29px orange}
+	72% {text-shadow: 0px 0px 28px orange}
+	73% {text-shadow: 0px 0px 27px orange}
+	74% {text-shadow: 0px 0px 26px orange}
+	75% {text-shadow: 0px 0px 25px orange}
+	76% {text-shadow: 0px 0px 24px orange}
+	77% {text-shadow: 0px 0px 23px orange}
+	78% {text-shadow: 0px 0px 22px orange}
+	79% {text-shadow: 0px 0px 21px orange}
+	80% {text-shadow: 0px 0px 20px orange}
+	81% {text-shadow: 0px 0px 19px orange}
+	82% {text-shadow: 0px 0px 18px orange}
+	83% {text-shadow: 0px 0px 17px orange}
+	84% {text-shadow: 0px 0px 16px orange}
+	85% {text-shadow: 0px 0px 15px orange}
+	86% {text-shadow: 0px 0px 14px orange}
+	87% {text-shadow: 0px 0px 13px orange}
+	88% {text-shadow: 0px 0px 12px orange}
+	89% {text-shadow: 0px 0px 11px orange}
+	90% {text-shadow: 0px 0px 10px orange}
+	91% {text-shadow: 0px 0px 9px orange}
+	92% {text-shadow: 0px 0px 8px orange}
+	93% {text-shadow: 0px 0px 7px orange}
+	94% {text-shadow: 0px 0px 6px orange}
+	95% {text-shadow: 0px 0px 5px orange}
+	96% {text-shadow: 0px 0px 4px orange}
+	97% {text-shadow: 0px 0px 3px orange}
+	98% {text-shadow: 0px 0px 2px orange}
+	99% {text-shadow: 0px 0px 1px orange}
+	100% {text-shadow: 0px 0px 0px orange}
 }
 
 .player {
