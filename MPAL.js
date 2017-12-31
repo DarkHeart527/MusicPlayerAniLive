@@ -122,7 +122,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				}
 				if (JSP('#audioPort1').currentTime.toString() != JSP('#audioPort2').currentTime.toString()) {
 					JSP('#audioPort2').currentTime = JSP('#audioPort1').currentTime;
-					console.info('Display time was not equal to audio time ' + JSP('#audioPort1').currentTime + ' - ' + JSP('#audioPort2').currentTime + ' equaling out to ' + JSP('#audioPort1').currentTime);
+					//console.info('Display time was not equal to audio time ' + JSP('#audioPort1').currentTime + ' - ' + JSP('#audioPort2').currentTime + ' equaling out to ' + JSP('#audioPort1').currentTime);
 				}
 			}
 		},
