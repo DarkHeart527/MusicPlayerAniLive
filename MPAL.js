@@ -120,9 +120,9 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 					bar_height = -(this.freqSave.fbc_array[i] / 2);
 					this.freqSave.ctx.fillRect(bar_x, this.freqSave.canvas.height, bar_width, bar_height);
 				}
-				if (JSP('#audioPort1').currentTime != JSP('#audioPort2').currentTime) {
+				if (JSP('#audioPort1').currentTime.toString() != JSP('#audioPort2').currentTime.toString()) {
 					JSP('#audioPort2').currentTime = JSP('#audioPort1').currentTime;
-					console.info('Display time was not equal to audio time ' + JSP('#audioPort1').currentTime + ' - ' + JSP('#audioPort2').currentTime + 'equaling out to ' + JSP('#audioPort1').currentTime);
+					console.info('Display time was not equal to audio time ' + JSP('#audioPort1').currentTime + ' - ' + JSP('#audioPort2').currentTime + ' equaling out to ' + JSP('#audioPort1').currentTime);
 				}
 			}
 		},
