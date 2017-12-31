@@ -135,7 +135,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 					if (func != '' | func != undefined) {
 						//func();
 					}
-				}, 50);
+				});
 			} else if (mode == 'off') {
 				JSP('#canvasBackground').style.display = 'none';
 				clearInterval(this.visualizerInterval);
