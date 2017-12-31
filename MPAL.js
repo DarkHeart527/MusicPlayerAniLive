@@ -18,6 +18,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				var artistName = Object.keys(tracks.artists)[i];
 				var artistElement = JSPlugs.newElement('div');
 				artistElement.attributes.artistName = artistName;
+				MPAL.artists[MPAL.artists.length] = artistName;
 				artistElement.newClass('artist');
 				musicList.appendChild(artistElement);
 				for (let i2 = 0; i2 < artist.length(); i2++) {
