@@ -96,6 +96,9 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				JSP('#audioPort2').play();
 			}
 		},
+		customSettings: {
+			mainColor: '#448888',
+		}
 		frequencyArray: [],
 		freqSave: {},
 		frequencyReceiver: function() {
@@ -112,7 +115,7 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				this.freqSave.fbc_array = new Uint8Array(this.freqSave.analyser.frequencyBinCount);
 				this.freqSave.analyser.getByteFrequencyData(this.freqSave.fbc_array);
 				this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
-				this.freqSave.ctx.fillStyle = '#00CCFF';
+				this.freqSave.ctx.fillStyle = this.customSettings.mainColor;
 				bars = 100;
 				for (let i = 0; i < bars; i++) {
 					bar_x = i * 3;
