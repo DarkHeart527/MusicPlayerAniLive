@@ -11,9 +11,9 @@
 		</link>
 		<script src="JSPlugs.js">
 		</script>
-		<script src="MPAL.js">
-		</script>
 		<script src="tracks.js">
+		</script>
+		<script src="updateNotes.js">
 		</script>
 	</head>
 	<body>
@@ -25,7 +25,7 @@
 		<div class="player">
 			<div class="controls">
 				<div id="playpause">
-					<img src="play.png" class="playpausePicture" />
+					<img src="buttonPictures/play.png" class="playpausePicture" />
 				</div>
 				<div id="back">
 					<img src="back.png" class="backPicture" />
@@ -62,16 +62,26 @@
 			</div>
 		</div>
 		<div class="side">
+			<p>Settings</p>
+			<p class="optionHeading">Frequency Visualizer</p>
+			<div id="visualizerSelectionNote"></div>
+			<select onchange="MPAL.visualizer('on', this.value);" id="visualizerSelection">
+				<option value="noVisual" selected>Off</option>
+				<option value="frequencyBars">Bars</option>
+				<option value="stars" disabled>Stars</option>
+			</select>
 		</div>
-		<audio id="audioPort1" autoplay>
+		<!--<audio id="audioPort1" autoplay>
 		</audio>
 		<audio id="audioPort2" autoplay>
 		</audio>
 		<audio id="audioPort3" autoplay>
-		</audio>
+		</audio>-->
 		<canvas id="canvasBackground">
 		</canvas>
 	</body>
+	<script src="MPAL.js">
+	</script>
 	<script>
 		MPAL.setExeArea(JSP('#musicList'));
 		MPAL.setup();
