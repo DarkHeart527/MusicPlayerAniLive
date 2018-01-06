@@ -67,5 +67,37 @@ var tracks = {
 				source: 'Six Foot Seven Foot.mp3',
 			},
 		},
+		Disturbed: {
+			'Another Way To Die': {
+				source: 'Another Way To Die.mp3',
+			},
+			'Down With The Sickness': {
+				source: 'Down With The Sickness.mp3',
+			},
+			'Immortalized': {
+				source: 'Immortalized.mp3',
+			},
+			'Indestructible': {
+				source: 'Indestructible.mp3',
+			},
+			'Prayer': {
+				source: 'Prayer.mp3',
+			},
+			'Remember': {
+				source: 'Remember.mp3',
+			},
+			'Stupify': {
+				source: 'Stupify.mp3',
+			},
+			'The Animal': {
+				source: 'The Animal.mp3',
+			},
+			'The Vengeful One': {
+				source: 'The Vengeful One.mp3',
+			},
+			'Voices': {
+				source: 'Voices.mp3',
+			},
+		},
 	},
 }
