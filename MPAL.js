@@ -209,8 +209,8 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 				this.freqSave.analyser.getByteFrequencyData(this.freqSave.fbc_array);
 				this.startedF = true;
 			}
-			switch(type) {
-				case 'frequencyBars':
+			/*switch(type) {
+				case 'frequencyBars':*/
 					this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
 					this.freqSave.ctx.fillStyle = this.customSettings.mainColor;
 					bars = 100;
@@ -219,13 +219,13 @@ if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
 						bar_width = 2;
 						bar_height = -(this.freqSave.fbc_array[i] / 2);
 						this.freqSave.ctx.fillRect(bar_x, this.freqSave.canvas.height, bar_width, bar_height);
-					}
+					}/*
 				break;
 				case 'stars': // Get 3 In Array 0
 					var freq = this.freqSave.fbc_array[4];
 					console.error('This is not made yet - stars\nLine 224');
 				break;
-			}
+			}*/
 		},
 		startedF: false,
 		visualizer: function(mode, type) {
