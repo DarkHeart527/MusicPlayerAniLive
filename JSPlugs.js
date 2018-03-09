@@ -1,154 +1,181 @@
-(function() {
-	// Version
-	var _ = {
-		name: 'JSPlugs',
-		version: '1.0.0 BETA',
-	}
-	// Execute
-	Array.prototype.average = function() {
-		var average = 0;
-		var arr = this;
-		var arrTotal = arr.length;
-		for (let i = 0; i3 < arr.length; i3++) {
-			if (isNaN(arr[i3]) | arr[i3] == '' | arr[i3] == null | arr[i3] == undefined) {
-				console.info(_.name + ': Please note that "' + arr[i3] + '" is not a number');
-				arrTotal--;
+if (document.getElementsByName('mpal')[0].attributes.action.value == 'allow') {
+	var MPAL = {
+		targetSetup: '',
+		setExeArea: function(target) {
+			this.targetSetup = target;
+		},
+		artists: [],
+		interval: '',
+		currentArtist: 1,
+		currentSong: 1,
+		currentSongName: '',
+		currentArtistName: '',
+		setup: function() {
+			var musicList = this.targetSetup;
+			for (let i = 0; i < tracks.artists.length(); i++) {
+				var artist = tracks.artists[Object.keys(tracks.artists)[i]];
+				var artistName = Object.keys(tracks.artists)[i];
+				var artistElement = JSPlugs.newElement('div');
+				artistElement.attributes.artistName = artistName;
+				artistElement.newClass('artist');
+				musicList.appendChild(artistElement);
+				for (let i2 = 0; i2 < artist.length(); i2++) {
+					var track = artist[Object.keys(artist)[i2]];
+					var trackName = Object.keys(artist)[i2];
+					var trackElement = JSPlugs.newElement('div');
+					var trackNameElement = JSPlugs.newElement('div');
+					trackNameElement.onclick = function() {
+						// Create a Play on click function
+						//JSP('#audioPort2').volume = 0;
+						JSP('#audioPort1').src = this.attributes.src;
+						JSP('#audioPort2').src = this.attributes.src;
+						MPAL.playing = true;
+						JSP('#playpause').src = 'pause.png';
+						MPAL.visualizer('on');
+					}
+					trackNameElement.innerHTML = trackName;
+					trackNameElement.newClass('trackName');
+					trackNameElement.attributes.src = tracks.mainSource + artistName + '/' + track.source;
+					trackElement.newClass('trackElement');
+					artistElement.appendChild(trackElement);
+					trackElement.appendChild(trackNameElement);
+				}
+			}
+			JSP('#artistNameDisplay').innerHTML = Object.keys(tracks.artists)[0];
+			JSP('.artist')[0].style.display = 'block';
+			JSP('#playpause').onclick = function() {MPAL.playPause();};
+			JSP('#audioPort1').onloadedmetadata = function() {
+				JSP('#progress').attributes.length = this.duration;
+				MPAL.interval = setInterval( function() {
+					JSP('#progress').style.width = (Number(JSP('#audioPort1').currentTime) / Number(JSP('#audioPort1').duration) * 100) + '%';
+					var currentTime = Math.floor(JSP('#audioPort1').currentTime);
+					var duration = Math.floor(JSP('#audioPort1').duration);
+					var audio = {
+						initialSeconds: currentTime,
+						initialSeconds2: duration,
+						minute: 0,
+						second: 0,
+						minute2: 0,
+						second2: 0,
+					}
+					while (audio.initialSeconds >= 60) {
+						audio.initialSeconds -= 60;
+						audio.minute += 1;
+					}
+					if (audio.initialSeconds < 60) {
+						audio.second = audio.initialSeconds;
+					}
+					while (audio.initialSeconds2 >= 60) {
+						audio.initialSeconds2 -= 60;
+						audio.minute2 += 1;
+					}
+					if (audio.initialSeconds2 < 60) {
+						audio.second2 = audio.initialSeconds2;
+					}
+					if (audio.second < 10) {
+						audio.second = '0' + audio.second;
+					}
+					if (audio.second2 < 10) {
+						audio.second2 = '0' + audio.second2;
+					}
+					duration = audio.minute2 + ':' + audio.second2;
+					currentTime = audio.minute + ':' + audio.second;
+					JSP('#progressText').innerHTML = currentTime + ' / ' + duration;
+				});
+			}
+		},
+		playPause: function() {
+			if (this.playing == true) {
+				this.playing = false;
+				JSP('#audioPort1').pause();
+				JSP('#audioPort2').pause();
 			} else {
-				average += arr[i3];
+				this.playing = true;
+				JSP('#audioPort1').play();
+				JSP('#audioPort2').play();
 			}
-		}
-		return average / arrTotal;
-	}
-	Array.prototype.findDuplicate = function(type, func) { //NOT DONE
-		if (type == undefined) {
-			// Just log the duplicates
-			arr = this;
-			var currentNum = 0;
-			for (let i = 0; i < arr.length * arr.length; i++) {
-				var visualArray = ['a', 'b', 'c', 'a']; // Try to test for duplicates
-				if (currentNum == arr[i]) {
-					
-				}
-				/*
-					If the arr.length is = to 6 and arr.length** is equal to 36
-					find a test to check every six numbers without changing anything
-				*/
-				if (1 == 1) {
-					
-				}
-			}
-		} else if (type == 'remove') {
-			
-		} else if (type == 'function') {
-			func(arr);
-		} else {
-			// Report error and log duplicates
-		}
-	}
-	Number.prototype.fromExptoOne = function() {
-		num = this;
-		var checking = true;
-		while (num != 1 & checking == true) {
-			//num = num / 2;
-			if (num < 1) {
-				checking = false;
-				return 'This is not an Exp W/O fraction';
-				num = 1;
-			} else if (num == 1) {
-				checking = false;
-				return true;
-			} else if (num.toString() == 'NaN') {
-				checking = false;
-				console.log(num)
-				return 'NaN';
-			}
-		}
-		num = 1;
-		console.info('IMPORTANT! This is currently disabled for work');
-	}
-	Element.prototype.del = function() {
-		this.remove();
-	}
-	Element.prototype.newClass = function(change) {
-		this.className = change;
-		return this;
-	};
-	Object.prototype.length = function() {
-		return Object.keys(this).length;
-	}
-	console.info(_.name + " loaded. Version: " + _.version);
-})();
-
-var JSP = function(find) {
-	if (find[0] == '#') {
-		var b = '';
-		for (let i = 1; i < find.length; i++) {
-			b += find[i];
-		}
-		return document.getElementById(b);
-	} else if (find[0] == '.') {
-		var b = '';
-		for (let i4 = 1; i4 < find.length; i4++) {
-			b += find[i4];
-		}
-		var found = document.getElementsByClassName(b);
-		var arr2 = [];
-		for (let i2 = 0; i2 < found.length; i2++) {
-			if (found.length > 1) {
-				arr2[arr2.length] = found[i2];
-				if (found.length == i2 + 1) {
-					return arr2;
-				}
+		},
+		frequencyArray: [],
+		freqSave: {},
+		frequencyReceiver: function() {
+			if (this.startedF == false) {
+				this.freqSave.audio = JSP('#audioPort2');
+				this.freqSave.context = new AudioContext();
+				this.freqSave.canvas = JSP('#canvasBackground');
+				this.freqSave.analyser = this.freqSave.context.createAnalyser();
+				this.freqSave.ctx = this.freqSave.canvas.getContext('2d');
+				this.freqSave.source = this.freqSave.context.createMediaElementSource(this.freqSave.audio);
+				this.freqSave.source.connect(this.freqSave.analyser);
+				this.startedF = true;
 			} else {
-			 return found[i2];
-			}
-		}
-		
-	} else {
-		// Assume tag
-		var tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body', 'title', 'head', 'html', 'p', 'article', 'aside', 'div', 'object', 'style', 'script', 'link'];
-		var found = false;
-		for (let i5 = 0; i5 < tags.length; i5++) {
-			if (find == tags[i5]) {
-				found = true;
-			}
-		}
-		if (found == false) {
-			console.info('The tag ' + find + 'does not exist in our library, here are our tags that exist \n' + tags);
-		}
-		var found = document.getElementsByTagName(find);
-		var arr3 = [];
-		for (let i6 = 0; i6 < found.length; i6++) {
-			if (found.length > 1) {
-				arr3[arr3.length] = found[i6];
-				if (found.length == i6 + 1) {
-					return arr3;
+				this.freqSave.fbc_array = new Uint8Array(this.freqSave.analyser.frequencyBinCount);
+				this.freqSave.analyser.getByteFrequencyData(this.freqSave.fbc_array);
+				this.freqSave.ctx.clearRect(0, 0, this.freqSave.canvas.width, this.freqSave.canvas.height);
+				this.freqSave.ctx.fillStyle = '#00CCFF';
+				bars = 100;
+				for (let i = 0; i < bars; i++) {
+					bar_x = i * 3;
+					bar_width = 2;
+					bar_height = -(this.freqSave.fbc_array[i] / 2);
+					this.freqSave.ctx.fillRect(bar_x, this.freqSave.canvas.height, bar_width, bar_height);
 				}
-			} else {
-				return found[i6];
+				if (JSP('#audioPort1').currentTime != JSP('#audioPort2').currentTime) {
+					JSP('#audioPort2').currentTime = JSP('#audioPort1').currentTime;
+					console.info('Display time was not equal to audio time ' + JSP('#audioPort1').currentTime + ' - ' + JSP('#audioPort2').currentTime + 'equaling out to ' + JSP('#audioPort1').currentTime);
+				}
 			}
-		}
+		},
+		startedF: false,
+		visualizer: function(mode, func) {
+			if (mode == 'on') {
+				JSP('#canvasBackground').style.display = 'block';
+				this.visualizerInterval = setInterval( function() {
+					MPAL.frequencyReceiver();
+					if (func != '' | func != undefined) {
+						//func();
+					}
+				});
+			} else if (mode == 'off') {
+				JSP('#canvasBackground').style.display = 'none';
+				clearInterval(this.visualizerInterval);
+			}
+		},
 	}
+} else {
+	console.error('Music Player AniLive IS NOT FOR USE, please DELETE THIS SCRIPT IMMEDIATLY! \nMPAL.js');
 }
 
-
-var JSPlugs = {
-	'localSave': function(name, data) {
-		localStorage.setItem('JSPlugs' + name, data);
-	},
-	'localLoad': function(name, func) {
-		var data = localStorage.getItem('JSPlugs' + name);
-		if (func.toString() == 'null' | func.toString() == 'undefined') {
-			
-		} else {
-			func(data);
+/*	Visusalizer Reference
+		var audio = new Audio();
+		audio.src = 'https://darkheart527.github.io/darkheartprod/beats/Flames.mp3';
+		audio.autoplay = true;
+		audio.controls = true;
+		var context, analyser, canvas, ctx, source;
+		function init() {
+			document.body.appendChild(audio);
+			context = new AudioContext();
+			analyser = context.createAnalyser();
+			canvas = document.getElementById('analyser');
+			ctx = canvas.getContext('2d');
+			source = context.createMediaElementSource(audio);
+			source.connect(analyser);
+			analyser.connect(context.destination);
+			frameLooper(context);
 		}
-	},
-	'readJSPlugsFile': function() {
 		
-	},
-	'newElement': function(a) {
-		var b = document.createElement(a);
-		return b;
-	},
-}
+		function frameLooper(context) {
+			window.requestAnimationFrame(frameLooper);
+			fbc_array = new Uint8Array(analyser.frequencyBinCount);
+			analyser.getByteFrequencyData(fbc_array);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle = '#00CCFF';
+			bars = 100;
+			for (let i = 0; i < bars; i++) {
+				bar_x = i * 3;
+				bar_width = 2;
+				bar_height = -(fbc_array[i] / 2);
+				ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
+			}
+		}
+		init();
+*/
